@@ -1,0 +1,6 @@
+title: $:/plugins/bramton/tw5-birthdays
+
+Plugin provides a filter and a macro.
+
+!! Details
+The plugin uses the `dob` field of tiddlers to derive the birthday. The date format should be `yyyy-mm-dd`.
