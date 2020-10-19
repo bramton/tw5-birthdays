@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/bramton/tw5-birthdays/dateformat.js
+title: $:/plugins/bramton/tw5-birthdays/ddmm.js
 type: application/javascript
 module-type: macro
 
@@ -8,10 +8,6 @@ Macro to convert a date to dd-mm format
 (function(){
 
 "use strict";
-
-/*
-Information about this macro
-*/
 
 exports.name = "ddmm";
 
@@ -23,10 +19,9 @@ exports.params = [
 Run the macro
 */
 exports.run = function(date) {
-	// Date of Birth format: yyyy-mm-dd
-	console.log("date:"+date);
-	var dob = date.split("-");
-	return dob[2]+"-"+dob[1];
+	// Expected format: yyyy-mm-dd
+	var parts = date.split("-");
+	return parts[2]+"-"+parts[1];
 };
 
 })();

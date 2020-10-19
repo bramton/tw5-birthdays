@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/bramton/tw5-birthdays/bday.js
+title: $:/plugins/bramton/tw5-birthdays/upcoming.js
 type: application/javascript
 module-type: filteroperator
 
@@ -7,24 +7,25 @@ Filter dates on month and day, upcoming dates first
 \*/
 (function(){
 
+
 "use strict";
 
-/*
-Order a list
-*/
-exports.bday = function(source, operator, options) {
+// TODO: specify date format in operand.
+
+exports.upcoming = function(source, operator, options) {
 	var results = [];
 	var dates = [];
 	const today = new Date();
+	const field = operator.suffix;
 
 	source(function(tiddler, title) {
-		// Date of Birth format: yyyy-mm-dd
-		var dob = tiddler.getFieldString("dob");
-		if (dob !== null && dob !== "") {
-			dob = dob.split("-");
-			if (dob.length === 3) {
-				let m = parseInt(dob[1], 10) - 1; // Month, zero based
-				const d = parseInt(dob[2]); // Day
+		// Expected format: yyyy-mm-dd
+		var date = tiddler.getFieldString(field);
+		if (date !== null && date !== "") {
+			date = date.split("-");
+			if (date.length === 3) {
+				let m = parseInt(date[1], 10) - 1; // Month, zero based
+				const d = parseInt(date[2]); // Day
 
 				// Determine if date needs to be at end of queue
 				if(
