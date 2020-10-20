@@ -13,14 +13,14 @@ Filter dates on month and day, upcoming dates first
 // TODO: specify date format in operand.
 
 exports.upcoming = function(source, operator, options) {
-	var results = [];
-	var dates = [];
+	let results = [];
+	let dates = [];
 	const today = new Date();
 	const field = operator.suffix;
 
 	source(function(tiddler, title) {
 		// Expected format: yyyy-mm-dd
-		var date = tiddler.getFieldString(field);
+		let date = tiddler.getFieldString(field);
 		if (date !== null && date !== "") {
 			date = date.split("-");
 			if (date.length === 3) {

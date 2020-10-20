@@ -20,7 +20,7 @@ Run the macro
 */
 exports.run = function(date) {
 	// Expected format: yyyy-mm-dd
-	var parts = date.split("-");
+	let parts = date.split("-");
 	return parts[2]+"-"+parts[1];
 };
 

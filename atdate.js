@@ -13,13 +13,13 @@ Filter dates on the specified date
 // TODO: specify date format in operand.
 
 exports.atdate = function(source, operator, options) {
-	var results = [];
+	let results = [];
 	const today = new Date();
 	const field = operator.suffix;
 
 	source(function(tiddler, title) {
 		// Expected format: yyyy-mm-dd
-		var date = tiddler.getFieldString(field);
+		let date = tiddler.getFieldString(field);
 		if (date !== null && date !== "") {
 			date = date.split("-");
 			if (date.length === 3) {
